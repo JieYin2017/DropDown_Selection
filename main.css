@@ -1,0 +1,35 @@
+body, #searchfield {
+	font: 1.2em arial, helvetica, sans-serif;
+}
+
+#selection {
+    margin-left:auto;
+    margin-right:auto;
+    width:500px;
+}
+
+.match {
+    color:red;
+}
+.suggestions {
+    background-color: #FFF;
+    padding-top:10px;
+    padding-bottom:10px;
+    padding-left:5px;
+    border: 1px solid #000;
+}
+
+.suggestions:hover {
+	background-color: #69F;
+}
+
+#popups {
+    width:500px;
+    position: absolute;
+    max-height: 500px;
+    overflow:auto;
+}
+
+#searchField{
+    width: 500px;
+}

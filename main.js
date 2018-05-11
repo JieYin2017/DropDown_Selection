@@ -60,12 +60,14 @@ function searchSuggest() {
 	for (var i = 0; i < filtered.length; i++) {
 		var tempDiv = document.createElement("div");
 		tempDiv.className = "suggestions";
-		
+		/*
 		if(str.length != 0){
 			tempDiv.innerHTML = "<span class = \"match\">" + str + "</span><span class=\"notMatch\">" + filtered[i].slice(str.length) + "</span>";
 		}else{
 			tempDiv.innerHTML = filtered[i];
 		}
+		*/
+		tempDiv.innerHTML = "<span class = \"match\">" + str + "</span><span class=\"notMatch\">" + filtered[i].slice(str.length) + "</span>";
 		tempDiv.onclick = makeChoice;
 		document.getElementById("popups").appendChild(tempDiv);
 	}
@@ -73,10 +75,9 @@ function searchSuggest() {
 
 function makeChoice(evt) {
 	var thisDiv = (evt) ? evt.target : window.event.srcElement;
-	if(thisDiv.childNodes[1]){
-		document.getElementById("searchField").value = thisDiv.childNodes[0].innerHTML + thisDiv.childNodes[1].innerHTML;
-	}else{
-		document.getElementById("searchField").value = thisDiv.innerHTML;
+	if(thisDiv.childNodes.length != 2){
+		thisDiv = thisDiv.parentNode;
 	}
+	document.getElementById("searchField").value = thisDiv.childNodes[0].innerHTML + thisDiv.childNodes[1].innerHTML;
 	document.getElementById("popups").innerHTML = "";
 }
